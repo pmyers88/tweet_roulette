@@ -1,4 +1,4 @@
- import ConfigParser
+import ConfigParser
 import tweepy
 
 config = ConfigParser.ConfigParser()
