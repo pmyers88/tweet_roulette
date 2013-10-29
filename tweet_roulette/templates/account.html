@@ -1,13 +1,13 @@
 <html>
-<head>
-	{% load staticfiles %}
+  <head>
+    {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
     <title>Generate</title>
-</head>
-<body>
+  </head>
+  <body>
     <p>You searched for: <strong>@{{ username }}</strong></p>
     <p>Generated tweet based on the account of @{{ username }}: <strong>{{ tweet }}</strong></p>
     <button class="button-class" onclick="window.location.reload()">Try again</button>
     <button class="button-class" onclick="window.location='/tweetroulette/';">Enter a new name</button>
-</body>
+  </body>
 </html>
