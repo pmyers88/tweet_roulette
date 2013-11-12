@@ -1,5 +1,6 @@
 import ConfigParser
 import tweepy
+import webbrowser
 
 config = ConfigParser.ConfigParser()
 config.read("/home/phil/twitter_keys.config")
@@ -26,6 +27,6 @@ def getTweetsFromUser(username):
         # append the current tweets to tweetsString; keep track of the end of 
 	# the tweet so that individual tweets can be retrieved from the text
 	# corpus later
-        tweetsString = "".join((tweetsString, "".join([" ".join([tweet.text.encode('utf8').lower(), "ENDTWEET\n"]) for tweet in tweets])))
+        tweetsString = "".join((tweetsString, "".join([" ".join([tweet.text.encode('ascii', 'ignore').lower(), "ENDTWEET\n"]) for tweet in tweets])))
         last_id = tweet.id - 1
     return tweetsString

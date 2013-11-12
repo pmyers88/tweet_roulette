@@ -33,4 +33,3 @@ def account(request, account_id):
     except TwitterAccount.DoesNotExist:
         raise Http404
     return render(request, 'account.html', {'username' : account_id, 'tweet': account.generateTweet(2),})
-    

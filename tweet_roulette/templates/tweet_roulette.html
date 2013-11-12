@@ -1,16 +1,32 @@
 <html>
   <head>
     <title>Tweet Roulette</title>
-    {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}main.css">
+    <link rel="icon" href="{{ STATIC_URL }}favicon.ico" type="image/x-icon" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.btn').click(function() {
+          $('#fetchingTweets').show();
+        });
+      });
+    </script>
   </head>
   <body>
-    <p>
-      <form action="/account/" method="post">{% csrf_token %}
-        <label for="username">Enter a Twitter username: </label>
-        <input type="text" name="username" id="username" /> 
-        <input type="submit" class="button-class" value="Generate">
-      </form>
-    </p>
+    <div id="content">
+      <div id="spacer"></div>
+      <h1>Tweet Roulette</h1>
+      <div id="form">
+        <form action="/account/" method="post">{% csrf_token %}
+          <input type="text" name="username" id="username" /> 
+          <input type="submit" class="btn" value="Generate">
+        </form>
+        <div id="fetchingTweets">
+          <p>Fetching tweets <img src="{{ STATIC_URL }}loader.gif"/></p>
+        </div>
+        <p>Tweet Roulette uses <a href="http://en.wikipedia.org/wiki/N-gram">n-grams</a> to generate tweets based on what a user has previously tweeted. Enter a username to try it out!</p>
+      </div>
+    </div>
   </body>
 </html>

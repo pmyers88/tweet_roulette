@@ -1,13 +1,18 @@
 <html>
   <head>
-    {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
-    <title>Generate</title>
+    <title>Tweet Roulette</title>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}main.css">
+    <link rel="icon" href="{{ STATIC_URL }}favicon.ico" type="image/x-icon" />
+    <script type="text/javascript">!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
   </head>
   <body>
-    <p>You searched for: <strong>@{{ username }}</strong></p>
-    <p>Generated tweet based on the account of @{{ username }}: <strong>{{ tweet }}</strong></p>
-    <button class="button-class" onclick="window.location.reload()">Try again</button>
-    <button class="button-class" onclick="window.location='/tweetroulette/';">Enter a new name</button>
+    <div id="spacer"></div>
+    <div id="content">
+      <p>Generated tweet based on the account of @{{ username }}: </p>
+      <p>{{ tweet }}</p>
+      <a href="https://twitter.com/share?text={{ tweet }}" class="twitter-share-button" data-count="none" data-size="large" data-lang="en">Tweet</a>
+      <button class="btn" onclick="window.location.reload()">Try again</button>
+      <button class="btn" onclick="window.location='/tweetroulette/';">Enter a new name</button>
+    </div>
   </body>
 </html>

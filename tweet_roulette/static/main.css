@@ -1,0 +1,44 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+body {
+    background-color: #55ACEE;
+}
+h1 {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    font-size: 48pt;
+}
+#content {
+    height: 100%;
+    color: white;
+    text-align: center;
+    font-family: Futura, sans-serif;
+}
+#spacer{
+    height: 35%
+}
+#username {
+    width: 300px;
+    border-radius: 5px;
+    font-size: 16pt;
+}
+#fetchingTweets {
+    display: none;
+}
+.btn {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 16pt;
+  background: #66757f;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+.btn:hover {
+  background: #4c5961;
+  text-decoration: none;
+}
+}

@@ -24,13 +24,17 @@ class TwitterAccount(models.Model):
         
         # get the list of tuples that are the first n words of a tweet
         for tweet in tokenizedCorpus:
-            startTweets.append(tuple(tweet[0:n]))
-            # need to add this so that ngrams can be formed from the last n words of a tweet
-            tweet.append("")
-            [ngramDict[tuple(tweet[i:i+n])].append(tweet[i+n]) for i in range(len(tweet) - n)]
+            if len(tweet) >= n:
+                startTweets.append(tuple(tweet[0:n]))
+                # need to add this so that ngrams can be formed from the last n words of a tweet
+                tweet.append("")
+                for i in range(len(tweet) - n):
+                    dictKey = tuple(tweet[i:i+n])
+                    ngramDict[dictKey].append(tweet[i+n])
     
         # the start of a generated tweet is always the start of a tweet from the corpus
         key = choice(startTweets)
+        print key
         tweet = list(key)
         tweetLength = len(" ".join(tweet))
         if "" not in key:
@@ -43,6 +47,7 @@ class TwitterAccount(models.Model):
                     key = key[1:] + (word,)
                 else:
                     break
+        print tweet
         return " ".join(tweet)
     
     def __unicode__(self):
