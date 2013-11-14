@@ -7,8 +7,16 @@
 </script>
     <script type="text/javascript">
       $(document).ready(function() {
-        $('.btn').click(function() {
-          $('#fetchingTweets').show();
+        $('#form').submit(function() {
+          var re = new RegExp("^\\w{1,15}$");
+          var username = $('#username').val();
+          if(!re.test(username)) {
+            alert("Usernames can only have letters, numbers and underscores. Try another username.");
+            $('#username').val('');
+            event.preventDefault();
+          } else {
+            $('#fetchingTweets').delay(500).show(0);
+          }
         });
       });
     </script>
@@ -18,13 +26,19 @@
       <div id="spacer"></div>
       <h1>Tweet Roulette</h1>
       <div id="form">
-        <form action="/account/" method="post">{% csrf_token %}
-          <input type="text" name="username" id="username" /> 
+        <form id="generateForm" action="/account/" method="post">{% csrf_token %}
+          <input type="text" name="username" id="username" maxlength="15" /> 
           <input type="submit" class="btn" value="Generate">
         </form>
+        {% if error %}
+        <p>{{ error }}</p>
+        {% endif %}
         <div id="fetchingTweets">
           <p>Fetching tweets <img src="{{ STATIC_URL }}loader.gif"/></p>
         </div>
+        <!--<div id="validation-dialog">
+          <p>Usernames can only have letters, numbers and underscores. Try another username.</p>
+        </div>-->
         <p>Tweet Roulette uses <a href="http://en.wikipedia.org/wiki/N-gram">n-grams</a> to generate tweets based on what a user has previously tweeted. Enter a username to try it out!</p>
       </div>
     </div>

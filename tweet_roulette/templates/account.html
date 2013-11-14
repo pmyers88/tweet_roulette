@@ -3,16 +3,18 @@
     <title>Tweet Roulette</title>
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}main.css">
     <link rel="icon" href="{{ STATIC_URL }}favicon.ico" type="image/x-icon" />
-    <script type="text/javascript">!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    
   </head>
   <body>
     <div id="spacer"></div>
     <div id="content">
       <p>Generated tweet based on the account of @{{ username }}: </p>
       <p>{{ tweet }}</p>
-      <a href="https://twitter.com/share?text={{ tweet }}" class="twitter-share-button" data-count="none" data-size="large" data-lang="en">Tweet</a>
-      <button class="btn" onclick="window.location.reload()">Try again</button>
-      <button class="btn" onclick="window.location='/tweetroulette/';">Enter a new name</button>
+      <p>
+        <a href="https://twitter.com/share?text={{ tweet }}&via=tweet_roulette" target="_blank" class="btn">Tweet</a>
+        <a href="." class="btn">Try again</a>
+        <a href="/tweetroulette/" class="btn">Enter a new name</a>
+      </p>
     </div>
   </body>
 </html>
