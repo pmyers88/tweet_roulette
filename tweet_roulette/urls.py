@@ -6,8 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-     url(r'^$', 'tweet_roulette_app.views.home', name='home'),
-     url(r'^tweetroulette/$', 'tweet_roulette_app.views.tweet_roulette_form', name='tweet_roulette'),
+     url(r'^$', 'tweet_roulette_app.views.tweet_roulette_form', name='tweet_roulette'),
      url(r'^account/$', 'tweet_roulette_app.views.create_account'),
      url(r'^account/(?P<account_id>\w{1,15})/$', 'tweet_roulette_app.views.account'),
      

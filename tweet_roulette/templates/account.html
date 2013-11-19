@@ -1,19 +1,20 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>Tweet Roulette</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}main.css">
     <link rel="icon" href="{{ STATIC_URL }}favicon.ico" type="image/x-icon" />
-    
   </head>
   <body>
     <div id="spacer"></div>
     <div id="content">
-      <p>Generated tweet based on the account of @{{ username }}: </p>
-      <p>{{ tweet }}</p>
+      <p>Generated tweet based on the account of <a href="http://twitter.com/{{ username }}" class="link" target="_blank">@{{ username }}</a>: </p>
+      <p id="tweet">{{ tweet }}</p>
       <p>
-        <a href="https://twitter.com/share?text={{ tweet }}&via=tweet_roulette" target="_blank" class="btn">Tweet</a>
-        <a href="." class="btn">Try again</a>
-        <a href="/tweetroulette/" class="btn">Enter a new name</a>
+        <a href="https://twitter.com/share?text={{ tweet|urlencode }}&via=tweet_roulette" target="_blank" class="btn">Tweet</a>
+        <a href="." class="btn">Try Again</a>
+        <a href="/tweetroulette/" class="btn">Enter a New Name</a>
       </p>
     </div>
   </body>
