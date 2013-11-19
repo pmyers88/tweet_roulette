@@ -4,8 +4,7 @@ from random import choice
 
 class NLPCorpus(object):
 
-    def __init__(self, name, corpus, tokenize_str, delimiter, n, max_length):
-        self.name = name
+    def __init__(self, corpus, tokenize_str, delimiter, n, max_length):
         self.corpus = corpus
         self.tokenizer = RegexpTokenizer(tokenize_str)
         self.delimiter = delimiter
@@ -28,7 +27,7 @@ class NLPCorpus(object):
     def set_ngrams(self):
         for sentence in self.tokenized_corpus:
             length = len(sentence)
-            #append empty string to indicate the end of a tweet
+            #append empty string to indicate the end of a sentence
             sentence.append('')
             if(length >= self.n):
                 self.startList.append(tuple(sentence[0:self.n]))
@@ -42,7 +41,7 @@ class NLPCorpus(object):
                 self.ngramDict[tuple(sentence)].append('')
 
     def generate_sentence(self):
-        # the start of a generated tweet is always the start of a tweet from the corpus
+        # the start of a generated sentence is always the start of a sentence from the corpus
         key = choice(self.startList)
         sentence = list(key)
         sentence_length = len(" ".join(sentence))
@@ -53,7 +52,7 @@ class NLPCorpus(object):
         while True:
             if len(self.ngramDict[key]) == 1:
                 single_choice += 1
-            # use a unigram to select the next word to make it more likely that it's not a retweet
+            # use a unigram to select the next word to add more variety
             if single_choice != 3:
                 # select one of the words mapped to the current ngram key
                 word = choice(self.ngramDict[key])
