@@ -1,7 +1,7 @@
 Django==1.5.1
 MySQL-python==1.2.3
 argparse==1.2.1
-mysql-connector-python==0.3.2-devel
+mysql-connector-python==1.0.12
 nltk==2.0.4
 oauth==1.0.1
 oauthlib==0.5.1
