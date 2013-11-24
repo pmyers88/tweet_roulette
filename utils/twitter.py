@@ -5,7 +5,7 @@ import os
 
 def getAPI():
     config = ConfigParser.ConfigParser()
-    config.read(os.path.join(PROJECT_PATH, 'conf'))
+    config.read(os.path.join(PROJECT_PATH, 'conf/twitter_keys.config'))
 
     # get the OAuth keys
     consumer_key = config.get('Keys', 'consumer_key')
