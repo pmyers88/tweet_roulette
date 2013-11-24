@@ -8,7 +8,7 @@ from django.utils import simplejson
 from models import TwitterAccount
 from tweepy import TweepError
 from utils import twitter
-from utils.nlp import CorpusCache, NLPCorpus
+from utils.nlp import NLPCorpus
 
 #need to instantiate this object only once
 TWITTER_API = twitter.getAPI()

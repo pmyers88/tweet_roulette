@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tweet Roulette</title>
+    <title>Tweet Like Me</title>
     <link rel='icon' type='image/x-icon' href='{{ STATIC_URL }}favicon.ico' />
     <link rel='stylesheet' type='text/css' href='{{ STATIC_URL }}main.css'>
     <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans'/>
@@ -13,7 +13,7 @@
   <body>
     <div id='content'>
       <div id='spacer'></div>
-      <h1>Tweet Roulette</h1>
+      <h1>Tweet Like Me</h1>
       <form id='generateForm' action='/account/' onsubmit='return validate();' method='post'>{% csrf_token %}
         <input type='text' name='username' id='username' maxlength='15' autofocus="autofocus" /> 
         <input type='submit' class='btn' value='Generate'>
@@ -21,7 +21,7 @@
       {% if error %}
         <p id="error">{{ error }}</p>
       {% endif %}
-      <p>Tweet Roulette uses <a href='http://en.wikipedia.org/wiki/N-gram' class="link">n-grams</a> to generate 
+      <p>Tweet Like Me uses <a href='http://en.wikipedia.org/wiki/N-gram' class="link">n-grams</a> to generate 
       tweets based on what a user has previously tweeted. Enter a username to try it out!</p>
     </div>
   </body>
