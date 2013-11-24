@@ -1,9 +1,11 @@
 import ConfigParser
 import tweepy
+from tweet_roulette.settings import PROJECT_PATH
+import os
 
 def getAPI():
     config = ConfigParser.ConfigParser()
-    config.read("/home/phil/twitter_keys.config")
+    config.read(os.path.join(PROJECT_PATH, 'conf'))
 
     # get the OAuth keys
     consumer_key = config.get('Keys', 'consumer_key')
