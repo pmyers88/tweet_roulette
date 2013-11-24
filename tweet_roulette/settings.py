@@ -1,5 +1,15 @@
 # Django settings for tweet_roulette project.
 import os
+import dj_database_url
+ 
+ #Heroku settings
+DATABASES['default'] = dj_database_url.config()
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
  
 PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))  
 
