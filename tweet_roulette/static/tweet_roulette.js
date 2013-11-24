@@ -28,7 +28,7 @@ function validate() {
     window.location.href = '/account/' + username + '/';
     return false;
   } else {
-    $('<p>Fetching tweets (this only needs to be done once per account) <img src="http://localhost:8000/static/loader.gif"/></p>')
+    $('<p>Fetching tweets (this only needs to be done once per account) <img src="/static/loader.gif"/></p>')
       .insertAfter('form');
     return true;
   }
