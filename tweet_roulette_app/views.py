@@ -14,7 +14,7 @@ from utils.nlp import NLPCorpus
 TWITTER_API = twitter.getAPI()
 
 def tweet_roulette_form(request):
-    return render(request, 'tweet_roulette.html')
+    return render(request, 'tweetlikeme.html')
     
 def create_account(request):
     if request.method == 'POST':
@@ -28,14 +28,14 @@ def create_account(request):
                     account = TwitterAccount(username=name, text_corpus=corpus, num_queries=0)
                     account.save()
                 else:
-                    return render(request, 'tweet_roulette.html', {'error' : "@" + name + " hasn't tweeted anything yet. Try again with another account",})  
+                    return render(request, 'tweetlikeme.html', {'error' : "@" + name + " hasn't tweeted anything yet. Try again with another account",})  
             except TweepError, e:
                 # the error code for a non-existent username is 34
                 if "34" in str(e):
                     error = 'Username "' + name + '" does not exist. Try again with another username.'
                 else:
                     error = str(e)    
-                return render(request, 'tweet_roulette.html', {'error' : error,})  
+                return render(request, 'tweetlikeme.html', {'error' : error,})  
         return redirect('/account/' + name + '/')
     if request.method == 'GET':
         accounts = simplejson.dumps(list(TwitterAccount.objects.order_by('-num_queries').values_list('username', flat=True)))
