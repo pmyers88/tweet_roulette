@@ -51,7 +51,7 @@ def account(request, account_id):
         account.save()
         nlp_corpus = cache.get(account.username)
         if not nlp_corpus:
-            nlp_corpus = NLPCorpus(account.text_corpus, "[@#$]?\w+(['-_:/.]+\w+)*", "ENDTWEET", 2, 120)
+            nlp_corpus = NLPCorpus(account.text_corpus, "[@#$]?\w+(['-_:/.]+\w+)*", "ENDTWEET", 2, 121)
             cache.set(account.username, nlp_corpus)
         tweet = nlp_corpus.generate_sentence()
         return render(request, 'account.html', {'username' : account_id, 'tweet': tweet,})

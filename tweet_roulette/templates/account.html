@@ -12,7 +12,7 @@
       <p>Generated tweet based on the account of <a href="http://twitter.com/{{ username }}" class="link" target="_blank">@{{ username }}</a>: </p>
       <p id="tweet">{{ tweet }}</p>
       <p>
-        <a href="https://twitter.com/share?text={{ tweet|urlencode }}&via=tw33t_like_me" target="_blank" class="btn">Tweet</a>
+        <a href="https://twitter.com/intent/tweet?text={{ tweet|urlencode }}&via=tw33t_like_me" target="_blank" class="btn">Tweet</a>
         <a href="." class="btn">Try Again</a>
         <a href="/" class="btn">Enter a New Name</a>
       </p>
