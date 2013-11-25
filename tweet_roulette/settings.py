@@ -11,7 +11,7 @@ ALLOWED_HOSTS = ['*']
  
 PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))  
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
