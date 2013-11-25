@@ -33,6 +33,8 @@ def create_account(request):
                 # the error code for a non-existent username is 34
                 if "34" in str(e):
                     error = 'Username "' + name + '" does not exist. Try again with another username.'
+                elif "88" in str(e):
+                    error = "We can't download any data from Twitter right now because of their rate limits. Try again with an account from the autocomplete dropdown."
                 else:
                     error = str(e)    
                 return render(request, 'tweetlikeme.html', {'error' : error,})  
