@@ -25,6 +25,9 @@ h1 {
     border-radius: 5px;
     font-size: 16pt;
 }
+#loading {
+    display: none;
+}
 .link {
     text-decoration: none;
 }

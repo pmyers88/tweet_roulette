@@ -28,8 +28,7 @@ function validate() {
     window.location.href = '/account/' + username + '/';
     return false;
   } else {
-    $('<p>Fetching tweets (this only needs to be done once per account) <img src="http://tweetlikeme.herokuapp.com/static/loader.gif"/></p>')
-      .insertAfter('form');
+    $('#loading').show();
     return true;
   }
 }

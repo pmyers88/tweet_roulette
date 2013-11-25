@@ -21,6 +21,7 @@
       {% if error %}
         <p id="error">{{ error }}</p>
       {% endif %}
+      <p id="loading">Fetching tweets (this only needs to be done once per account) <img src="{{ STATIC_URL }}loader.gif"/></p>
       <p>Tweet Like Me uses <a href='http://en.wikipedia.org/wiki/N-gram' class="link">n-grams</a> to generate 
       tweets based on what a user has previously tweeted. Enter a username to try it out!</p>
     </div>
